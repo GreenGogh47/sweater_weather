@@ -10,10 +10,8 @@ RSpec.describe MapQuestService do
           expect(search).to have_key(:info)
           expect(search).to have_key(:results)
 
-          require 'pry'; binding.pry
-
-          locations = search[:results][:locations]
-
+          locations = search[:results].first[:locations]
+          
           expect(locations).to be_an(Array)
           expect(locations.first).to have_key(:latLng)
 
