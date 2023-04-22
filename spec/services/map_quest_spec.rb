@@ -9,6 +9,8 @@ RSpec.describe MapQuestService do
         expect(search).to have_key(:info)
         expect(search).to have_key(:results)
 
+        require 'pry'; binding.pry
+
         locations = search[:results][:locations]
 
         expect(locations).to be_an(Array)
@@ -20,9 +22,6 @@ RSpec.describe MapQuestService do
         expect(locations.first[:latLng]).to have_key(:lng)
         expect(locations.first[:latLng][:lng]).to eq(-104.99202)
       end
-      
-      
-      
       
       # it "returns coordinates for a given address" do
       #   search = MapQuestService.new.address_to_coordinates("Denver, CO")
