@@ -1,12 +1,11 @@
 require "rails_helper"
 
-RSpec.describe ForcastFacade do
+RSpec.describe ForecastFacade do
   describe "instance methods" do
     describe "#coordinates" do
       it "returns coordinates for a given address" do
         VCR.use_cassette("forcast_denver_lat_lng") do
-          facade = ForcastFacade.new("Denver,CO")
-          require 'pry'; binding.pry
+          facade = ForecastFacade.new("Denver,CO")
 
           expect(search).to be_a(Hash)
 
