@@ -1026,16 +1026,19 @@ RSpec.describe Forecast do
       }
   }
 
-  @forecast = Forecast.new(weather)
+    @forecast = Forecast.new(weather)
   end
 
   it "exists" do
     expect(@forecast).to be_a(Forecast)
-    require 'pry'; binding.pry
-    # expect(@forcast).to have_key(:id)
-    # expect(@forcast).to have_key(:type)
-    expect(@forcast).to have_key(:current_weather)
-    expect(@forcast).to have_key(:daily_weather)
-    expect(@forcast).to have_key(:hourly_weather)
-  end
+    # expect(@forcast.id).to eq(nil)
+    # expect(@forcast).to eq("forecast")
+    expect(@forecast.current_weather).to eq({:last_updated=>"2023-04-22 14:15", :temperature=>30.6, :feels_like=>25.9, :humidity=>71, :uvi=>nil, :visibility=>9.0, :condition=>"Partly cloudy", :icon=>"//cdn.weatherapi.com/weather/64x64/day/116.png"})
+
+    expect(@forecast.daily_weather).to be_an(Array)
+    expect(@forecast.daily_weather.first).to eq({:date=>"2023-04-22", :sunrise=>"06:12 AM", :sunset=>"07:45 PM", :max_temp=>43.0, :min_temp=>28.8, :condition=>"Moderate rain", :icon=>"//cdn.weatherapi.com/weather/64x64/day/302.png"})
+
+    expect(@forecast.hourly_weather).to be_an(Array)
+    expect(@forecast.hourly_weather.first).to eq({:time=>"2023-04-22 00:00", :temperature=>32.9, :conditions=>"Heavy snow", :icon=>"//cdn.weatherapi.com/weather/64x64/night/338.png"})
+	end
 end
