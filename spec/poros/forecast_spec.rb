@@ -1031,8 +1031,11 @@ RSpec.describe Forecast do
 
   it "exists" do
     expect(@forecast).to be_a(Forecast)
-    # expect(@forcast.id).to eq(nil)
-    # expect(@forcast).to eq("forecast")
+
+    expect(@forecast.id).to eq(nil)
+    expect(@forecast.type).to eq("forecast")
+
+		expect(@forecast.current_weather).to be_an(Hash)
     expect(@forecast.current_weather).to eq({:last_updated=>"2023-04-22 14:15", :temperature=>30.6, :feels_like=>25.9, :humidity=>71, :uvi=>nil, :visibility=>9.0, :condition=>"Partly cloudy", :icon=>"//cdn.weatherapi.com/weather/64x64/day/116.png"})
 
     expect(@forecast.daily_weather).to be_an(Array)

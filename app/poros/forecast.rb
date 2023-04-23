@@ -1,9 +1,14 @@
 class Forecast
-  attr_accessor :current_weather,
+  attr_accessor :id,
+                :type,
+                :current_weather,
                 :daily_weather,
                 :hourly_weather
 
-  def initialize(weather_data)
+  def initialize(id = nil, type = "forecast", weather_data)
+    @id = id
+    @type = type
+    
     @current_weather = {
       last_updated: weather_data[:current][:last_updated],
       temperature: weather_data[:current][:temp_f],
