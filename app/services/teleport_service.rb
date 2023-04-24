@@ -1,7 +1,7 @@
 class TeleportService
 
   def get_salaries(city)
-    search = connection.get("urban_areas/slug:#{city}/salaries")
+    get("urban_areas/slug:#{city}/salaries")
   end
 
 
