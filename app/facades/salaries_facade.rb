@@ -18,7 +18,6 @@ class SalariesFacade
   def self.current_forecast(city)
     weather = ForecastFacade.new(city)
     forecast = weather.forecast.current_weather
-    # require 'pry'; binding.pry
     {summary: forecast[:condition], temperature: forecast[:temperature]}
   end
 
