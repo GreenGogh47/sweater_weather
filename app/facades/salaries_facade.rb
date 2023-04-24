@@ -23,6 +23,6 @@ class SalariesFacade
   def self.salaries(city)
     forecast = current_forecast(city)
     salaries = salary_info(city)
-    require 'pry'; binding.pry
+    Salaries.new(city, forecast, salaries)
   end
 end

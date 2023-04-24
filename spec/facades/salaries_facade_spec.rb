@@ -42,7 +42,7 @@ RSpec.describe SalariesFacade do
       VCR.use_cassette("facade_chicago_final") do
         facade = SalariesFacade.salaries("chicago")
 
-        require 'pry'; binding.pry
+        expect(facade).to be_a(Salaries)
       end
     end
   end
