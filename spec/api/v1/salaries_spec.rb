@@ -31,8 +31,22 @@ RSpec.describe "Salaries API" do
       attributes = data[:attributes]
 
       expect(attributes).to have_key(:destination)
+      expect(attributes[:destination]).to eq("chicago")
+
       expect(attributes).to have_key(:forecast)
+      expect(attributes[:forecast]).to be_a(Hash)
+      expect(attributes[:forecast]).to have_key(:summary)
+      expect(attributes[:forecast]).to have_key(:temperature)
+
       expect(attributes).to have_key(:salaries)
+      expect(attributes[:salaries]).to be_a(Array)
+      expect(attributes[:salaries].first).to be_a(Hash)
+      
+      salary = attributes[:salaries].first
+
+      expect(salary).to have_key(:title)
+      expect(salary).to have_key(:min)
+      expect(salary).to have_key(:max)
     end
   end
 end
