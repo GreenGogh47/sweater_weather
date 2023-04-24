@@ -11,7 +11,6 @@ RSpec.describe "Salaries API" do
       expect(response).to be_successful
       
       salaries = JSON.parse(response.body, symbolize_names: true)
-      require 'pry'; binding.pry
 
       expect(salaries).to be_a(Hash)
       expect(salaries).to have_key(:data)

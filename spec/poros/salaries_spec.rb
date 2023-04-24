@@ -14,6 +14,7 @@ RSpec.describe Salaries do
 
   it "exists" do
     salaries = Salaries.new("chicago", @forecast, @salaries)
+    expect(salaries).to be_a(Salaries)
     expect(salaries.destination).to eq("chicago")
     expect(salaries.forecast).to eq(@forecast)
     expect(salaries.salaries).to eq(@salaries)
