@@ -1,10 +1,10 @@
 class SalariesFacade
   
   def self.salary_info(city)
-    @service = TeleportService.new.get_salaries(city)
+    service = TeleportService.new.get_salaries(city)
     jobs = ["Data Analyst", "Data Scientist", "Mobile Developer", "QA Engineer", "Software Engineer", "Systems Administrator", "Web Developer"]
     salaries = []
-    @service[:salaries].map do |salary|
+    service[:salaries].map do |salary|
       if jobs.include?(salary[:job][:title])
         title = salary[:job][:title]
         min = salary[:salary_percentiles][:percentile_75]
@@ -13,5 +13,10 @@ class SalariesFacade
       end
     end
     salaries
+  end
+
+  def self.current_forecast(city)
+    weather = ForecastFacade.new(city)
+    weather.forecast.current_weather
   end
 end
