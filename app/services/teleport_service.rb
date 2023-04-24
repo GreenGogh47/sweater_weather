@@ -1,13 +1,11 @@
 class TeleportService
 
-  def get_cities
-    
+  def get_salaries(city)
+    search = connection.get("urban_areas/slug:#{city}/salaries")
+  end
 
 
-
-  private
-
-  def get_url(url)
+  def get(url)
     response = connection.get(url)
     JSON.parse(response.body, symbolize_names: true)
   end
