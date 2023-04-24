@@ -3,10 +3,10 @@ require "rails_helper"
 RSpec.describe TeleportService do
   describe "instance methods" do
     describe "get_salaries" do
-      VCR.use_cassette("teleport_denver_salaries") do
-        search = TeleportService.new.get_salaries("denver")
-        require 'pry'; binding.pry
-        expect(search).to be_a(Hash)
+      VCR.use_cassette("teleport_chicago_salaries") do
+        search = TeleportService.new.get_salaries("chicago")
+        require 'pry'; binding.pryq
+        expect(search.body).to be_a(Hash)
       end
     end
 

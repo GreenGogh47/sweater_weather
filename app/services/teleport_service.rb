@@ -11,6 +11,6 @@ class TeleportService
   end
 
   def connection
-    Faraday.new(url: "https://api.teleport.org")
+    Faraday.new(url: "https://api.teleport.org/api")
   end
 end
