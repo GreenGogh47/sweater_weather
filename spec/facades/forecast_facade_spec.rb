@@ -13,6 +13,12 @@ RSpec.describe ForecastFacade do
 
           expect(facade.forecast.current_weather).to be_a(Hash)
           expect(facade.forecast.current_weather).to have_key(:last_updated)
+          expect(facade.forecast.current_weather).to have_key(:temperature)
+          expect(facade.forecast.current_weather).to have_key(:feels_like)
+          expect(facade.forecast.current_weather).to have_key(:humidity)
+          expect(facade.forecast.current_weather).to have_key(:uvi)
+          expect(facade.forecast.current_weather).to have_key(:visibility)
+          expect(facade.forecast.current_weather).to have_key(:condition)
 
           expect(facade.forecast.daily_weather).to be_a(Array)
           expect(facade.forecast.hourly_weather).to be_a(Array)
