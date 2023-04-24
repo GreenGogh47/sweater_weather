@@ -14,16 +14,8 @@ RSpec.describe Salaries do
 
   it "exists" do
     salaries = Salaries.new("chicago", @forecast, @salaries)
-
-    expect(salaries).to be_a(Salaries)
-    expect(salaries.id).to eq(nil)
-    expect(salaries.type).to eq("salaries")
-    expect(salaries.attributes).to be_a(Hash)
-
-    attributes = salaries.attributes
-
-    expect(attributes).to have_key(:destination)
-    expect(attributes).to have_key(:forecast)
-    expect(attributes).to have_key(:salaries)
+    expect(salaries.destination).to eq("chicago")
+    expect(salaries.forecast).to eq(@forecast)
+    expect(salaries.salaries).to eq(@salaries)
   end
 end

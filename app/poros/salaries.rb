@@ -1,9 +1,9 @@
 class Salaries
-  attr_reader :id, :type, :attributes
+  attr_reader :destination, :forecast, :salaries
 
-  def initialize(id = nil, city, forecast, salaries)
-    @id = id
-    @type = "salaries"
-    @attributes = {destination: city, forecast: forecast, salaries: salaries}
+  def initialize(city, forecast, salaries)
+    @destination = city
+    @forecast = forecast
+    @salaries = salaries
   end
 end
