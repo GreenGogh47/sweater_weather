@@ -25,16 +25,8 @@ RSpec.describe SalariesFacade do
         search = SalariesFacade.current_forecast("chicago")
         
         expect(search).to be_a(Hash)
-        expect(search).to have_key(:last_updated)
-        expect(search[:last_updated]).to be_a(String)
-
+        expect(search).to have_key(:summary)
         expect(search).to have_key(:temperature)
-        expect(search).to have_key(:feels_like)
-        expect(search).to have_key(:humidity)
-        expect(search).to have_key(:uvi)
-        expect(search).to have_key(:visibility)
-        expect(search).to have_key(:condition)
-        expect(search).to have_key(:icon)
       end
     end
 
