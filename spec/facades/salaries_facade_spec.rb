@@ -37,5 +37,13 @@ RSpec.describe SalariesFacade do
         expect(search).to have_key(:icon)
       end
     end
+
+    it "::salaries" do
+      VCR.use_cassette("facade_chicago_final") do
+        facade = SalariesFacade.salaries("chicago")
+
+        require 'pry'; binding.pry
+      end
+    end
   end
 end

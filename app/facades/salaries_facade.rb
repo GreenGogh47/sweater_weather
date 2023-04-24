@@ -17,6 +17,12 @@ class SalariesFacade
 
   def self.current_forecast(city)
     weather = ForecastFacade.new(city)
-    weather.forecast.current_weather
+    forecast = weather.forecast.current_weather
+  end
+
+  def self.salaries(city)
+    forecast = current_forecast(city)
+    salaries = salary_info(city)
+    require 'pry'; binding.pry
   end
 end
