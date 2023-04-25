@@ -10,7 +10,7 @@ RSpec.describe "Users API" do
   end
   
   it "can create a new user" do
-    post "/api/v1/users", params: @params
+    post "/api/v1/users", params: @params.to_json
 
     require 'pry'; binding.pry
 

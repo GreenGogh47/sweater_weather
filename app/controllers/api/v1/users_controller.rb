@@ -1,6 +1,7 @@
 class Api::V1::UsersController < ApplicationController
   def create
-    User.new(user_params)
+    user = User.new(user_params)
+    require 'pry'; binding.pry
   end
 
   private
