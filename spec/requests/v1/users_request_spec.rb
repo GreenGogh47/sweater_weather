@@ -7,6 +7,12 @@ RSpec.describe "Users API" do
       password: "password",
       password_confirmation: "password"
     }
+
+    @params2 = {
+      email: "whatever@example.com",
+      password: "password",
+      password_confirmation: "passw0rd"
+    }
   end
   
   it "can create a new user" do
@@ -25,5 +31,17 @@ RSpec.describe "Users API" do
       expect(response.body).to_not include("password")
       expect(response.body).to_not include("password_confirmation")
     end
+  end
+
+  it "can't create a new user if passwords don't match" do
+    VCR.use_cassette('user_password_conflict') do
+      post "/api/v1/users", params: @params2.to_json, headers: { 'CONTENT_TYPE' => 'application/json' }
+
+      expect(response.status).to eq(400)
+    end
+  end
+
+  it "can't create a new user if email is already taken" do
+    
   end
 end
