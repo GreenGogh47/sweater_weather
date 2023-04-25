@@ -3,7 +3,7 @@ require "rails_helper"
 RSpec.describe MapQuestService do
   describe "instance methods" do
     describe "address_to_coordinates" do
-      it "returns coordinates for a given address" do
+      it "#address_to_coordinates" do
         VCR.use_cassette("mapquest_denver_lat_lng") do
           search = MapQuestService.new.address_to_coordinates("Denver, CO")
           expect(search).to be_a(Hash)
