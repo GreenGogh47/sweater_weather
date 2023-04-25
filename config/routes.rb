@@ -9,6 +9,7 @@ Rails.application.routes.draw do
       get '/salaries', to: 'salaries#index'
       get '/forecast', to: 'forecast#index'
       post '/users', to: 'users#create'
+      post '/sessions', to: 'sessions#create'
     end
   end
 end
