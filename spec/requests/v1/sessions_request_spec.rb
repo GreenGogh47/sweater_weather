@@ -6,12 +6,13 @@ RSpec.describe "Sessions API" do
 
     @user_params = {email: "whatever@something.com", password: "password"}
     @user_params2 = {email: "whatever@something.com", password: "passw0rd"}
+    @user_params2 = {email: "whatEVA@something.com", password: "password"}
   end
 
   it "can create a new session" do
     VCR.use_cassette('session_creation') do
       post "/api/v1/sessions", params: @user_params.to_json, headers: { 'CONTENT_TYPE' => 'application/json' }
-      require 'pry'; binding.pry
+
       expect(response).to be_successful
       expect(response.status).to eq(200)
 
@@ -27,6 +28,13 @@ RSpec.describe "Sessions API" do
   it "can't create a new session if password is incorrect" do
     post "/api/v1/sessions", params: @user_params2.to_json, headers: { 'CONTENT_TYPE' => 'application/json' }
 
+    expect(response.status).to eq(400)
+    expect(response.body).to include("Incorrect credentials")
+  end
+  
+  it "can't create a new session if email is incorrect" do
+    post "/api/v1/sessions", params: @user_params2.to_json, headers: { 'CONTENT_TYPE' => 'application/json' }
+    
     expect(response.status).to eq(400)
     expect(response.body).to include("Incorrect credentials")
   end
