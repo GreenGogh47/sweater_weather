@@ -34,7 +34,7 @@ RSpec.describe "Sessions API" do
   
   it "can't create a new session if email is incorrect" do
     post "/api/v1/sessions", params: @user_params2.to_json, headers: { 'CONTENT_TYPE' => 'application/json' }
-    
+
     expect(response.status).to eq(400)
     expect(response.body).to include("Incorrect credentials")
   end
