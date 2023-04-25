@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     namespace :v1 do
       get '/salaries', to: 'salaries#index'
       get '/forecast', to: 'forecast#index'
+      post '/users', to: 'users#create'
     end
   end
 end

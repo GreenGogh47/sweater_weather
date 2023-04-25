@@ -37,15 +37,13 @@ http_interactions:
       Vary:
       - Origin,Accept-Encoding
       X-Cache:
-      - Hit from cloudfront
+      - Miss from cloudfront
       Via:
-      - 1.1 3928ebdde42d36a72f49a8de192dda82.cloudfront.net (CloudFront)
+      - 1.1 0e00e4a51244e3761dee356d1ed0bb6a.cloudfront.net (CloudFront)
       X-Amz-Cf-Pop:
       - DEN50-C1
       X-Amz-Cf-Id:
-      - X6rmzgcrBT-3pJK7wdcvrvxv-rfgl3sxn5dvB1QTAAce72lekTNmyQ==
-      Age:
-      - '209'
+      - 8FpdpwuXv0Me1TyltJ5mrXxiDgvTxjmm1qlvIGxfvvZ0X08UTd_05A==
     body:
       encoding: ASCII-8BIT
       string: '{"_links":{"curies":[{"href":"https://developers.teleport.org/api/resources/Location/#!/relations/{rel}/","name":"location","templated":true},{"href":"https://developers.teleport.org/api/resources/City/#!/relations/{rel}/","name":"city","templated":true},{"href":"https://developers.teleport.org/api/resources/UrbanArea/#!/relations/{rel}/","name":"ua","templated":true},{"href":"https://developers.teleport.org/api/resources/Country/#!/relations/{rel}/","name":"country","templated":true},{"href":"https://developers.teleport.org/api/resources/Admin1Division/#!/relations/{rel}/","name":"a1","templated":true},{"href":"https://developers.teleport.org/api/resources/Timezone/#!/relations/{rel}/","name":"tz","templated":true}],"self":{"href":"https://api.teleport.org/api/urban_areas/slug:chicago/salaries/"}},"salaries":[{"job":{"id":"ACCOUNT-MANAGER","title":"Account
@@ -87,5 +85,5 @@ http_interactions:
         Designer"},"salary_percentiles":{"percentile_25":57210.412719627224,"percentile_50":70148.37349965962,"percentile_75":86012.21474774585}},{"job":{"id":"WAITER","title":"Waiter"},"salary_percentiles":{"percentile_25":19389.074535197138,"percentile_50":29677.96887062652,"percentile_75":45426.70846341771}},{"job":{"id":"WEB-DESIGNER","title":"Web
         Designer"},"salary_percentiles":{"percentile_25":39266.41094306577,"percentile_50":48047.17730025475,"percentile_75":58791.50121128626}},{"job":{"id":"WEB-DEVELOPER","title":"Web
         Developer"},"salary_percentiles":{"percentile_25":53704.53793049536,"percentile_50":66545.38666217329,"percentile_75":82456.50473241684}}]}'
-  recorded_at: Mon, 24 Apr 2023 16:24:29 GMT
+  recorded_at: Mon, 24 Apr 2023 16:21:00 GMT
 recorded_with: VCR 6.1.0
