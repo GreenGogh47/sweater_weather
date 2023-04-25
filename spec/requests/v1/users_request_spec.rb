@@ -3,15 +3,15 @@ require "rails_helper"
 RSpec.describe "Users API" do
   before :each do
     @params = {
-      "email": "whatever@example.com",
-      "password": "password",
-      "password_confirmation": "password"
+      email: "whatever@example.com",
+      password: "password",
+      password_confirmation: "password"
     }
   end
   
   it "can create a new user" do
     VCR.use_cassette('user_creation') do
-      post "/api/v1/users", params: @params.to_json
+      post "/api/v1/users", params: @params.to_json, headers: { 'CONTENT_TYPE' => 'application/json' }
 
       require 'pry'; binding.pry
 

@@ -1,7 +1,11 @@
 class Api::V1::UsersController < ApplicationController
   def create
     user = User.new(user_params)
-    require 'pry'; binding.pry
+    if user.save
+      require 'pry'; binding.pry
+    else
+      render json: { errors: user.errors.full_messages }, status: 400
+    end
   end
 
   private
