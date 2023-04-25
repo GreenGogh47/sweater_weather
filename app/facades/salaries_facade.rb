@@ -16,8 +16,8 @@ class SalariesFacade
   end
 
   def self.current_forecast(city)
-    weather = ForecastFacade.new(city)
-    forecast = weather.forecast.current_weather
+    weather = ForecastFacade.forecast(city)
+    forecast = weather.current_weather
     {summary: forecast[:condition], temperature: forecast[:temperature]}
   end
 
