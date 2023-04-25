@@ -10,12 +10,13 @@ RSpec.describe "Users API" do
   end
   
   it "can create a new user" do
-    post "/api/v1/users", params: @params.to_json
+    VCR.use_cassette('user_creation') do
+      post "/api/v1/users", params: @params.to_json
 
-    require 'pry'; binding.pry
+      require 'pry'; binding.pry
 
-    expect(response).to be_successful
-    expect(response.status).to eq(201)
-    
+      expect(response).to be_successful
+      expect(response.status).to eq(201)
+    end
   end
 end
