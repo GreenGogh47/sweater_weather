@@ -8,7 +8,6 @@ RSpec.describe ForecastFacade do
           facade = ForecastFacade.forecast("Denver,CO")
 
           expect(facade).to be_a(Forecast)
-          require 'pry'; binding.pry
           expect(facade.id).to eq(nil)
           expect(facade.type).to eq("forecast")
 
