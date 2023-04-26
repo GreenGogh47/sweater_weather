@@ -11,12 +11,12 @@ class RoadTripFacade
     forecast.hourly_weather.each do |day|
       day[:hour].each do |time|
         if time[:time].include?(end_time.strftime('%Y-%m-%d'))
-          require 'pry'; binding.pry
-          if end_time.strftime('%H') == Time.parse(time[:time]).strftime('%H')
+          if time[:time].include?("#{end_time.strftime('%H')}:00")
+            
             weather = {datetime: formatted_travel_time,
             temperature: time[:temp_f],
             condition: time[:condition][:text]}
-            # require 'pry'; binding.pry  
+
             return RoadTrip.new(params[:origin], params[:destination], formatted_travel_time, weather)
           end
         end
