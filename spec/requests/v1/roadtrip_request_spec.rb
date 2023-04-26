@@ -17,12 +17,12 @@ RSpec.describe "Roadtrip API" do
     }
   end
 
-  xit "can create a new roadtrip" do
-    # skipped until service complete
+  it "can create a new roadtrip" do
     VCR.use_cassette('roadtrip_creation') do
       post "/api/v1/road_trip", params: @params.to_json, headers: { 'CONTENT_TYPE' => 'application/json' }
 
       expect(response).to be_successful
+      require 'pry'; binding.pry
       expect(response.status).to eq(200)
 
       expect(response.body).to include("data")

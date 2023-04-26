@@ -4,7 +4,8 @@ RSpec.describe RoadTripFacade do
   describe "class methods" do
     it "#directions" do
       VCR.use_cassette("road_trip_facade") do
-        road_trip = RoadTripFacade.directions("Denver,CO", "Pueblo,CO")
+        params = {origin: "Denver,CO", destination: "Pueblo,CO"}
+        road_trip = RoadTripFacade.directions(params)
 
         expect(road_trip).to be_a(Array)
         expect(road_trip.first).to be_a(Hash)
