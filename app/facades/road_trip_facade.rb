@@ -13,7 +13,10 @@ class RoadTripFacade
       day[:hour].each do |time|
         if time[:time].include?(end_time.strftime('%Y-%m-%d'))
           if end_time.strftime('%H') == Time.parse(time[:time]).strftime('%H')
-            @road_trip = RoadTrip.new(from, to, formatted_travel_time, time)
+            weather = {datetime: formatted_travel_time,
+                      temperature: time[:temp_f],
+                      condition: time[:condition][:text]}
+            @road_trip = RoadTrip.new(from, to, formatted_travel_time, weather)
           end
         end
       end

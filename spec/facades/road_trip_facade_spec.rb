@@ -6,14 +6,16 @@ RSpec.describe RoadTripFacade do
       VCR.use_cassette("road_trip_facade") do
         road_trip = RoadTripFacade.directions("Denver,CO", "Pueblo,CO")
 
-        expect(road_trip).to have_key(:start_city)
-        expect(road_trip).to have_key(:end_city)
-        expect(road_trip).to have_key(:travel_time)
-        expect(road_trip).to have_key(:weather_at_eta)
+        expect(road_trip).to be_a(Array)
+        expect(road_trip.first).to be_a(Hash)
 
-        expect(road_trip[:weather_at_eta]).to have_key(:datetime)
-        expect(road_trip[:weather_at_eta]).to have_key(:temperature)
-        expect(road_trip[:weather_at_eta]).to have_key(:condition)
+        expect(road_trip.first).to have_key(:date)
+        expect(road_trip.first).to have_key(:day)
+
+        day = road_trip.first[:day]
+
+        expect(day).to have_key(:maxtemp_f)
+        expect(day).to have_key(:mintemp_f)
       end
     end
   end
